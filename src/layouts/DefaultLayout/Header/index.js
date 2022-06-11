@@ -1,7 +1,15 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faSearch, faSliders } from '@fortawesome/free-solid-svg-icons';
+import {
+    faBars,
+    faCircleQuestion,
+    faGear,
+    faSearch,
+    faSliders,
+    faGrip,
+    faUser,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { logo } from '../../../assets';
 const cx = classNames.bind(styles);
@@ -13,7 +21,7 @@ function Header() {
             <div className={cx('header-left')}>
                 <div className={cx('wrap-button')}>
                     <button className={cx('button-menu')} type="">
-                        <FontAwesomeIcon icon={faBars} />
+                        <FontAwesomeIcon icon={faBars} size="xl" />
                     </button>
                 </div>
                 <div className={cx('wrap-logo')}>
@@ -27,15 +35,29 @@ function Header() {
             <div className={cx('header-center')}>
                 <div className={cx('seach-box')}>
                     <button className={cx('btn-search')}>
-                        <FontAwesomeIcon icon={faSearch} />
+                        <FontAwesomeIcon icon={faSearch} size="xl" />
                     </button>
                     <input type="search" placeholder="Tìm kiếm trong thư" />
                     <button className={cx('btn-search')}>
-                        <FontAwesomeIcon icon={faSliders} />
+                        <FontAwesomeIcon icon={faSliders} size="xl" />
                     </button>
                 </div>
+                <div className={cx('header-action')}></div>
             </div>
-            <div className={cx('header-right')}>right</div>
+            <div className={cx('header-right')}>
+                <button className={cx('btn-help')}>
+                    <FontAwesomeIcon icon={faCircleQuestion} size="sm" />
+                </button>
+                <button className={cx('btn-setting')}>
+                    <FontAwesomeIcon icon={faGear} size="sm" />
+                </button>
+                <button className={cx('btn-setting')}>
+                    <FontAwesomeIcon icon={faGrip} size="sm" />
+                </button>
+                <button className={cx('btn-setting')}>
+                    <FontAwesomeIcon icon={faUser} size="sm" />
+                </button>
+            </div>
         </div>
     );
 }
