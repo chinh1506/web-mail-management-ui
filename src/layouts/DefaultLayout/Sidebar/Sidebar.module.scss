@@ -1,0 +1,56 @@
+.wrapper {
+    width: 256px;
+    min-height: 437px;
+    display: flex;
+    flex-direction: column;
+}
+.wrap-button {
+    display: flex;
+    font-size: medium;
+    height: 48px;
+    margin: 16px 0 16px;
+    padding: 0 0 0 8px;
+    color: #202124;
+}
+.btn-add {
+    border: none;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.25px;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #fff;
+    background-image: none;
+    -webkit-border-radius: 24px;
+    border-radius: 24px;
+    color: #3c4043;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    font-weight: 500;
+    height: 48px;
+    width: 140px;
+    min-width: 56px;
+    overflow: hidden;
+    padding: 0 24px 0 0;
+    text-transform: none;
+    transition: box-shadow 0.08s linear, min-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+        box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+        background-color: #fafafb;
+    }
+    &::before {
+        background-image: url(https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 32px;
+        content: '';
+        display: block;
+        height: 48px;
+        min-width: 56px;
+    }
+}
