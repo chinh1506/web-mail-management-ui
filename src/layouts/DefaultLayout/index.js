@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import styles from './DefaultLayout.module.scss';
+import Content from '../../components/Content';
 
 const cx = classNames.bind(styles);
 function DefaultLayout() {
@@ -12,7 +13,7 @@ function DefaultLayout() {
             <div className={cx('container')}>
                 <Sidebar />
                 <div className={cx('content')}>
-                    <h1>Content</h1>
+                    <Content></Content>
                 </div>
             </div>
         </div>
