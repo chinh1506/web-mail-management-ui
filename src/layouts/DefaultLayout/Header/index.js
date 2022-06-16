@@ -45,6 +45,7 @@ function Header() {
                 <div className={cx('header-action')}></div>
             </div>
             <div className={cx('header-right')}>
+                {/* menu */}
                 <button className={cx('btn-help')}>
                     <FontAwesomeIcon icon={faCircleQuestion} size="sm" />
                 </button>

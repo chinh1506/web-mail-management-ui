@@ -19,7 +19,7 @@
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
     -webkit-font-smoothing: antialiased;
     font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-    font-size: 0.875rem;
+    font-size: 13px;
     letter-spacing: 0.25px;
     -webkit-align-items: center;
     align-items: center;
@@ -31,7 +31,7 @@
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: inline-flex;
-    font-weight: 500;
+    font-weight: bold;
     height: 48px;
     width: 140px;
     min-width: 56px;
@@ -53,4 +53,7 @@
         height: 48px;
         min-width: 56px;
     }
+}
+.content-bar {
+    width: 100%;
 }
