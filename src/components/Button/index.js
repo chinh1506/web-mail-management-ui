@@ -3,7 +3,7 @@ import styles from './Button.module.scss';
 import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
-function CustomButton({ children, href, to, onClick, active, leftIcon, rightIcon, text, ...passProps }) {
+function CustomButton({ children, href, to, onClick, active, leftIcon, rightIcon, borderBottom, text, ...passProps }) {
     let Component = 'button';
     const props = {
         ...passProps,
@@ -19,6 +19,7 @@ function CustomButton({ children, href, to, onClick, active, leftIcon, rightIcon
 
     const classes = cx('wrapper', {
         active,
+        borderBottom,
     });
     return (
         <Component className={classes} {...props}>
