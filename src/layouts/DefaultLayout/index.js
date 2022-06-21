@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import styles from './DefaultLayout.module.scss';
 import Content from '../../components/Content';
 import MailItem from '../../components/MailItem';
+import MailContent from '../../components/MailContent';
 
 const cx = classNames.bind(styles);
 function DefaultLayout() {
@@ -52,11 +53,12 @@ function DefaultLayout() {
             <div className={cx('container')}>
                 <Sidebar />
                 <div className={cx('content')}>
-                    <Content>
+                    {/* <Content>
                         {emails.map((email, index) => (
                             <MailItem seen={email.isSeen} key={index} email={email} />
                         ))}
-                    </Content>
+                    </Content> */}
+                    <MailContent />
                 </div>
             </div>
         </div>
