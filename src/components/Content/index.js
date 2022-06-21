@@ -30,7 +30,7 @@ function Content({ children }) {
                     Mạng xã hội
                 </CustomButton>
             </div>
-            <div>{children}</div>
+            <div className={cx('container')}>{children}</div>
         </div>
     );
 }

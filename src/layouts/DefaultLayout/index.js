@@ -8,6 +8,44 @@ import MailItem from '../../components/MailItem';
 
 const cx = classNames.bind(styles);
 function DefaultLayout() {
+    const emails = [
+        {
+            isSeen: true,
+            from: 'Hoàng Văn chinh',
+            subject: 'Fresher java',
+            receiveDate: '16 thg 6 15:00',
+        },
+        {
+            isSeen: false,
+            from: 'Hoàng Văn chinh',
+            subject: 'Fresher java',
+            receiveDate: '16 thg 6 15:00',
+        },
+        {
+            isSeen: false,
+            from: 'Hoàng Văn chinh',
+            subject: 'Fresher java',
+            receiveDate: '16 thg 6 15:00',
+        },
+        {
+            isSeen: true,
+            from: 'Hoàng Văn chinh',
+            subject: 'Fresher java',
+            receiveDate: '16 thg 6 15:00',
+        },
+        {
+            isSeen: false,
+            from: 'Hoàng Văn chinh',
+            subject: 'Fresher java',
+            receiveDate: '16 thg 6 15:00',
+        },
+        {
+            isSeen: true,
+            from: 'Hoàng Văn chinh',
+            subject: 'Fresher java',
+            receiveDate: '16 thg 6 15:00',
+        },
+    ];
     return (
         <div className={cx('wrapper')}>
             <Header />
@@ -15,12 +53,9 @@ function DefaultLayout() {
                 <Sidebar />
                 <div className={cx('content')}>
                     <Content>
-                        <MailItem />
-                        <MailItem />
-                        <MailItem />
-                        <MailItem />
-                        <MailItem />
-                        <MailItem />
+                        {emails.map((email, index) => (
+                            <MailItem seen={email.isSeen} key={index} email={email} />
+                        ))}
                     </Content>
                 </div>
             </div>
