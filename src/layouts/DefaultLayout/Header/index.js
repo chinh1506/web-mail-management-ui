@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { logo } from '../../../assets';
+import { memo } from 'react';
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -63,4 +64,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default memo(Header);

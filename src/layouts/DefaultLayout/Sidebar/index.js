@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { memo } from 'react';
 import Menu from '../../../components/Menu';
 
 import styles from './Sidebar.module.scss';
@@ -11,11 +12,10 @@ function Sidebar() {
                 <button className={cx('btn-add')}>Soạn thư</button>
             </div>
             <div className={cx('content-bar')}>
-                {/* menu */}
                 <Menu />
             </div>
         </div>
     );
 }
 
-export default Sidebar;
+export default memo(Sidebar);

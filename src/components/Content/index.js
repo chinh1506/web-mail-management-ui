@@ -6,16 +6,8 @@ import CustomButton from '../Button';
 import MailContent from '../MailContent';
 import MailItem from '../../components/MailItem';
 import styles from './Content.module.scss';
-const emails = [
-    {
-        isSeen: true,
-        from: 'Hoàng Văn chinh',
-        subject: 'Fresher java',
-        sendDate: '16 thg 6 15:00',
-    },
-];
 const cx = classNames.bind(styles);
-function Content() {
+function Content({ currentFolder }) {
     const [mail, setMail] = useState({});
     const [active, setActive] = useState(1);
     const [back, setBack] = useState(false);
@@ -23,7 +15,7 @@ function Content() {
     const [mails, setMails] = useState([]);
     useEffect(() => {
         const callMails = async () => {
-            await fetch('http://localhost:8080/api/mails')
+            await fetch(`http://localhost:8080/api/mails?folder=${currentFolder.name}`)
                 .then((response) => response.json())
                 .then((json) => {
                     setMails(json);
@@ -31,7 +23,7 @@ function Content() {
                 });
         };
         callMails();
-    }, []);
+    }, [currentFolder]);
 
     const handleBack = () => {
         setBack(!back);

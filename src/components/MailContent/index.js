@@ -1,6 +1,4 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
-// import from ''
 import style from './MailContent.module.scss';
 
 const cx = classNames.bind(style);
@@ -11,7 +9,7 @@ function MailContent({ mail = {} }) {
             <h3 className={cx('subject')}>{mail && mail.subject}</h3>
             <div className={cx('header')}>
                 <div className={cx('info')}>
-                    <h5>Từ: {}</h5>
+                    <h5>Từ: {mail && mail.from}</h5>
                     <span>Tới: {mail && mail.to}</span>
                 </div>
                 <div className={cx('action')}>
