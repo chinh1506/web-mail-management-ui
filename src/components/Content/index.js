@@ -1,17 +1,48 @@
-import { faInbox, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faInbox, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CustomButton from '../Button';
+import MailContent from '../MailContent';
+import MailItem from '../../components/MailItem';
 import styles from './Content.module.scss';
-
+const emails = [
+    {
+        isSeen: true,
+        from: 'Hoàng Văn chinh',
+        subject: 'Fresher java',
+        sendDate: '16 thg 6 15:00',
+    },
+];
 const cx = classNames.bind(styles);
-function Content({ children }) {
+function Content() {
+    const [mail, setMail] = useState({});
     const [active, setActive] = useState(1);
+    const [back, setBack] = useState(false);
+
+    const [mails, setMails] = useState([]);
+    useEffect(() => {
+        const callMails = async () => {
+            await fetch('http://localhost:8080/api/mails')
+                .then((response) => response.json())
+                .then((json) => {
+                    setMails(json);
+                    console.log(json);
+                });
+        };
+        callMails();
+    }, []);
+
+    const handleBack = () => {
+        setBack(!back);
+    };
+    const handleShowContent = (mail) => {
+        setBack(!back);
+        setMail(mail);
+    };
     const handleActive = (index) => {
         setActive(index);
     };
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('nav')}>
@@ -30,7 +61,23 @@ function Content({ children }) {
                     Mạng xã hội
                 </CustomButton>
             </div>
-            <div className={cx('container')}>{children}</div>
+            {back && (
+                <button onClick={() => handleBack()} className={cx('button-back')}>
+                    <FontAwesomeIcon icon={faChevronLeft} size="lg" />
+                </button>
+            )}
+            <div className={cx('container')}>
+                {!back &&
+                    mails.map((email, index) => (
+                        <MailItem
+                            onClick={() => handleShowContent(email)}
+                            seen={email.isSeen}
+                            key={index}
+                            email={email}
+                        />
+                    ))}
+                {back && <MailContent mail={mail} />}
+            </div>
         </div>
     );
 }

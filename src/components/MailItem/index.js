@@ -8,15 +8,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
-function MailItem({ seen, email }) {
+function MailItem({ seen, email, onClick, ...passProps }) {
     const [focus, setFocus] = useState(false);
-
+    const props = {
+        onClick,
+        ...passProps,
+    };
     const classes = cx('wrapper', {
-        seen,
+        seen: !!email.flags.includes('Seen'),
         focus: focus,
     });
     return (
-        <div className={classes}>
+        <div className={classes} {...props}>
             <div className={cx('left')}>
                 <Tippy placement="bottom-end" content="Chọn">
                     <input type="checkbox" checked={focus} onChange={() => setFocus(!focus)} />

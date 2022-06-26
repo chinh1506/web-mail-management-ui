@@ -4,5 +4,20 @@
     height: 56px;
 }
 .container {
-    overflow: auto;
+    // overflow: auto;
+}
+.button-back {
+    padding: 0 5px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    color: #5f6368;
+    padding: 8px;
+    margin: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(60, 64, 67, 0.08);
+    }
 }
