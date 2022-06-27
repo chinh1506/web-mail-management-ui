@@ -18,6 +18,15 @@ function MailItem({ seen, email, onClick, ...passProps }) {
         seen: !!email.flags.includes('Seen'),
         focus: focus,
     });
+    const handleDelete = (id) => {
+        const callApi = async () => {
+            await fetch(`http://localhost:8080/api/mails/${id}`, {
+                method: 'DELETE',
+            }).then((response) => response.json());
+        };
+        callApi();
+    };
+
     return (
         <div className={classes} {...props}>
             <div className={cx('left')}>
@@ -28,7 +37,7 @@ function MailItem({ seen, email, onClick, ...passProps }) {
             </div>
             <div className={cx('content')}>{email.subject}</div>
             <div className={cx('right')}>
-                <button className={cx('icon')}>
+                <button onClick={() => handleDelete(email.id)} className={cx('icon')}>
                     <FontAwesomeIcon icon={faTrash} size="lg" />
                 </button>
                 <p className={cx('text-time')}>{email.receiveDate}</p>

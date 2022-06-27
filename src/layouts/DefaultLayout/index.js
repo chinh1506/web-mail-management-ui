@@ -6,6 +6,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import styles from './DefaultLayout.module.scss';
 import Content from '../../components/Content';
+import FormMail from '../../components/FormMail';
 
 export const MenuContext = createContext();
 const cx = classNames.bind(styles);
@@ -26,6 +27,7 @@ function DefaultLayout() {
                         <Content currentFolder={currentFolder} />
                     </div>
                 </div>
+                <FormMail />
             </div>
         </MenuContext.Provider>
     );

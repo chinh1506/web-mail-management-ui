@@ -11,7 +11,6 @@ function Content({ currentFolder }) {
     const [mail, setMail] = useState({});
     const [active, setActive] = useState(1);
     const [back, setBack] = useState(false);
-
     const [mails, setMails] = useState([]);
     useEffect(() => {
         const callMails = async () => {
@@ -68,7 +67,7 @@ function Content({ currentFolder }) {
                             email={email}
                         />
                     ))}
-                {back && <MailContent mail={mail} />}
+                {back && <MailContent currentFolder={currentFolder} mail={mail} />}
             </div>
         </div>
     );
