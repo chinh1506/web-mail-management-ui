@@ -33,7 +33,7 @@ function MailItem({ seen, email, onClick, ...passProps }) {
                 <Tippy placement="bottom-end" content="Chọn">
                     <input type="checkbox" checked={focus} onChange={() => setFocus(!focus)} />
                 </Tippy>
-                <p>{email.from}</p>
+                <p>{email.from.length > 35 ? email.from.slice(0, 33) + '...' : email.from}</p>
             </div>
             <div className={cx('content')}>{email.subject}</div>
             <div className={cx('right')}>
