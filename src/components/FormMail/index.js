@@ -3,12 +3,56 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './FormMail.module.scss';
 import { faMinus, faUpRightAndDownLeftFromCenter, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useContext } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { FormContext } from '../../layouts/DefaultLayout';
 
 const cx = classNames.bind(styles);
 function FormMail() {
     const handleClose = useContext(FormContext);
+    const [to, setTo] = useState('');
+    const [subject, setSubject] = useState('');
+    const [content, setContent] = useState('');
+    const [file, setFile] = useState();
+
+    const fileRef = useRef();
+
+    const handleChangeTo = (value) => {
+        setTo(value);
+    };
+    const handleChangeSubject = (value) => {
+        setSubject(value);
+    };
+    const handleChangeContent = (value) => {
+        setContent(value);
+    };
+    const handleChangeFile = () => {
+        setFile(fileRef.current.files[0]);
+    };
+
+    const handleSubmit = () => {
+        const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        if (regex.test(to)) {
+            const email = {
+                to,
+                subject,
+                content,
+            };
+            console.log(email);
+            const callApi = async () => {
+                await fetch('http://localhost:8080/api/mails', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(email),
+                }).then((res) => {
+                    console.log('Request complete! response:', res);
+                });
+            };
+            callApi();
+            handleClose();
+        } else {
+            alert('Địa chỉ email không hợp lệ !!!');
+        }
+    };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
@@ -27,20 +71,31 @@ function FormMail() {
             </div>
             <div className={cx('content')}>
                 <div className={cx('input1')}>
-                    <input type="text" placeholder="Người nhận" />
+                    <input value={to} onChange={(e) => handleChangeTo(e.target.value)} placeholder="Người nhận" />
                 </div>
                 <div className={cx('input2')}>
-                    <input type="text" placeholder="Chủ đề" />
+                    <input
+                        value={subject}
+                        onChange={(e) => handleChangeSubject(e.target.value)}
+                        type="text"
+                        placeholder="Chủ đề"
+                    />
                 </div>
-                <textarea className={cx('txtaContent')} rows="10" cols="10"></textarea>
+                <textarea
+                    value={content}
+                    onChange={(e) => handleChangeContent(e.target.value)}
+                    className={cx('txtaContent')}
+                    rows="10"
+                    cols="10"
+                ></textarea>
             </div>
             <div className={cx('footer')}>
-                <button type="">Gửi</button>
+                <button onClick={() => handleSubmit()}>Gửi</button>
                 <div className={cx('file')}>
                     <span>@</span>
-                    <input type="file" name="" value="" />
+                    <input file={file} ref={fileRef} onChange={() => handleChangeFile()} multiple type="file" name="" />
                 </div>
-                <p className={cx('file-name')}></p>
+                <p className={cx('file-name')}>{file && file.name}</p>
             </div>
         </div>
     );
