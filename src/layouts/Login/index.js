@@ -12,19 +12,20 @@ function Login() {
                             className={cx('logo')}
                         />
             </div>
-            <div className={cx('header')}>ĐĂNG NHẬP</div>
+            <div className={cx('header')}>SIGN IN</div>
             <div className={cx('content')}>
                 <div className={cx('login')}>
-                    <h3>Tài khoản</h3>
+                    <h3>User:</h3>
                     <input type="text" size="30"/>
                 </div>
                 <div className={cx('password')}>
-                    <h3>Mật khẩu</h3>
+                    <h3>Password:</h3>
                     <input type="text" size="30"/>
                 </div>
             </div>
             <div className={cx('footer')}>
-                <button>Đăng nhập</button>
+                <button className={cx('bt')}>Log in</button>
+                <button className={cx('nh')}>Need help?</button>
             </div>
         </div>
     </div>;

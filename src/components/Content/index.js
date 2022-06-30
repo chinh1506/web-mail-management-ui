@@ -42,14 +42,14 @@ function Content({ currentFolder }) {
                     onClick={() => handleActive(1)}
                     leftIcon={<FontAwesomeIcon icon={faInbox} size="sm" />}
                 >
-                    Chính
+                    Primary
                 </CustomButton>
                 <CustomButton
                     active={active === 2}
                     onClick={() => handleActive(2)}
                     leftIcon={<FontAwesomeIcon icon={faUserGroup} size="sm" />}
                 >
-                    Mạng xã hội
+                    Social Network
                 </CustomButton>
             </div>
             {back && (

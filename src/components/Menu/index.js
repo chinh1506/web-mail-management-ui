@@ -39,7 +39,7 @@ function Menu() {
                     leftIcon={<FontAwesomeIcon icon={folder.icon} size="sm" />}
                     text=""
                 >
-                    {folder.name}
+                    {folder.name.slice(0,1) + folder.name.slice(1).toLowerCase()}
                 </CustomButton>
             ))}
         </div>

@@ -38,7 +38,7 @@ function Header() {
                     <button className={cx('btn-search')}>
                         <FontAwesomeIcon icon={faSearch} size="xl" />
                     </button>
-                    <input type="search" placeholder="Tìm kiếm trong thư" />
+                    <input type="search" placeholder="Search mail" />
                     <button className={cx('btn-search')}>
                         <FontAwesomeIcon icon={faSliders} size="xl" />
                     </button>

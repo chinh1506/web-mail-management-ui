@@ -50,13 +50,13 @@ function FormMail() {
             callApi();
             handleClose();
         } else {
-            alert('Địa chỉ email không hợp lệ !!!');
+            alert('Email address is not valid !!!');
         }
     };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                <h6>Thư mới</h6>
+                <h6>New Message</h6>
                 <div className={cx('action')}>
                     <button>
                         <FontAwesomeIcon icon={faMinus} />
@@ -71,14 +71,14 @@ function FormMail() {
             </div>
             <div className={cx('content')}>
                 <div className={cx('input1')}>
-                    <input value={to} onChange={(e) => handleChangeTo(e.target.value)} placeholder="Người nhận" />
+                    <input value={to} onChange={(e) => handleChangeTo(e.target.value)} placeholder="To" />
                 </div>
                 <div className={cx('input2')}>
                     <input
                         value={subject}
                         onChange={(e) => handleChangeSubject(e.target.value)}
                         type="text"
-                        placeholder="Chủ đề"
+                        placeholder="Subject"
                     />
                 </div>
                 <textarea
@@ -90,7 +90,7 @@ function FormMail() {
                 ></textarea>
             </div>
             <div className={cx('footer')}>
-                <button onClick={() => handleSubmit()}>Gửi</button>
+                <button onClick={() => handleSubmit()}>Send</button>
                 <div className={cx('file')}>
                     <span>@</span>
                     <input file={file} ref={fileRef} onChange={() => handleChangeFile()} multiple type="file" name="" />

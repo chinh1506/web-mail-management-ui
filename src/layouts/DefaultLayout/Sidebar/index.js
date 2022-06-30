@@ -12,7 +12,7 @@ function Sidebar() {
         <div className={cx('wrapper')}>
             <div className={cx('wrap-button')}>
                 <button onClick={() => handleShowForm()} className={cx('btn-add')}>
-                    Soạn thư
+                    Compose
                 </button>
             </div>
             <div className={cx('content-bar')}>
